@@ -1,0 +1,10 @@
+EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Photo,ReportsTo,PhotoPath
+1,Davolio,Nancy,Sales Representative,Ms.,12/8/48,5/1/92,507 - 20th Ave. E.\nApt. 2A,Seattle,WA,98122,USA,(206) 555-9857,5467,\x,2,http://accweb/emmployees/davolio.bmp
+2,Fuller,Andrew,"Vice President, Sales",Dr.,2/19/52,8/14/92,908 W. Capital Way,Tacoma,WA,98401,USA,(206) 555-9482,3457,\x,2,http://accweb/emmployees/fuller.bmp
+3,Leverling,Janet,Sales Representative,Ms.,8/30/63,4/1/92,722 Moss Bay Blvd.,Kirkland,WA,98033,USA,(206) 555-3412,3355,\x,2,http://accweb/emmployees/leverling.bmp
+4,Peacock,Margaret,Sales Representative,Mrs.,9/19/37,5/3/93,4110 Old Redmond Rd.,Redmond,WA,98052,USA,(206) 555-8122,5176,\x,2,http://accweb/emmployees/peacock.bmp
+5,Buchanan,Steven,Sales Manager,Mr.,3/4/55,10/17/93,14 Garrett Hill,London,,SW1 8JR,UK,(71) 555-4848,3453,\x,2,http://accweb/emmployees/buchanan.bmp
+6,Suyama,Michael,Sales Representative,Mr.,7/2/63,10/17/93,Coventry House\nMiner Rd.,London,,EC2 7JR,UK,(71) 555-7773,428,\x,5,http://accweb/emmployees/davolio.bmp
+7,King,Robert,Sales Representative,Mr.,5/29/60,1/2/94,Edgeham Hollow\nWinchester Way,London,,RG1 9SP,UK,(71) 555-5598,465,\x,5,http://accweb/emmployees/davolio.bmp
+8,Callahan,Laura,Inside Sales Coordinator,Ms.,1/9/58,3/5/94,4726 - 11th Ave. N.E.,Seattle,WA,98105,USA,(206) 555-1189,2344,\x,2,http://accweb/emmployees/davolio.bmp
+9,Dodsworth,Anne,Sales Representative,Ms.,1/27/66,11/15/94,7 Houndstooth Rd.,London,,WG2 7LT,UK,(71) 555-4444,452,\x,5,http://accweb/emmployees/davolio.bmp
