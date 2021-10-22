@@ -20,17 +20,22 @@
 
 // COMMAND ----------
 
+// MAGIC %run /Users/vik.malhotra@neotechnology.com/credentials/password
+
+// COMMAND ----------
+
 import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.functions._
 
 
-val url = "bolt://35.175.142.233:7687"
-//val url = "neo4j+s://a7112d91.databases.neo4j.io"
+//val url = "bolt://35.175.142.233:7687"
+val url = "neo4j+s://f69451e9.databases.neo4j.io"
 val path = "dbfs:/FileStore/northwind/"
 
 val username = "neo4j"
-val password = "engineering-airport-delimiter"
-
+//val password = "engineering-airport-delimiter"
+// val password = "WQHYL-T20I_oI24DUi2os-Jcr3Chbn1PFUq_k8Ll2nU"
+val password = PASSWORD
 
 val spark = SparkSession.builder()
     .config("neo4j.url", url )
@@ -232,6 +237,7 @@ category_df.write
 
 // File location and type
 val file_location = path + "employees_rev.csv"
+//val file_location = path + "employees.csv"
 val file_type = "csv"
 
 // CSV options
@@ -244,6 +250,7 @@ val df = spark.read.format(file_type)
   .option("inferSchema", infer_schema) 
   .option("header", first_row_is_header)
   .option("sep", delimiter)
+  //.option("quote", "\"")
   .load(file_location)
 
 display(df)
@@ -277,7 +284,6 @@ employee_df.write
 
 import org.apache.spark.sql.functions.col
 val employee_report_to_df = df.select(col("EmployeeID").cast("Integer").alias("employeeID"),col("FirstName").alias("firstName"),col("LastName").alias("lastName"),col("Title").alias("title"), col("ReportsTo").cast("Integer").alias("reportsTo")).filter($"reportsTo".isNotNull).distinct()
-
 
 // COMMAND ----------
 
@@ -631,31 +637,31 @@ result_df.show()
 
 // MAGIC %python
 // MAGIC 
-// MAGIC pip install neo4j
+// MAGIC # pip install neo4j
 
 // COMMAND ----------
 
-# %python
-
-# from neo4j import GraphDatabase
-# import pandas as pd 
-
-# bolt_uri = "bolt://3.86.186.88:7687"
-# driver = GraphDatabase.driver(bolt_uri, auth=("neo4j", "digit-bottoms-sterilizer"))
-
-# query =  """ 
-# MATCH (choc:Product {productName:'Chocolade'})<-[:CONTAINS]-(:Order)<-[:SOLD]-(employee),
-#       (employee)-[:SOLD]->(o2)-[:CONTAINS]->(other:Product)
-# RETURN employee.employeeID as employee, other.productName as otherProduct, count(distinct o2) as count
-# ORDER BY count DESC
-# LIMIT 5
-# """
-
-# with driver.session(database="neo4j") as session:
-#     result = session.run(query)
-#     df = pd.DataFrame([dict(record) for record in result])
-
-# df.head()
+// MAGIC %python
+// MAGIC 
+// MAGIC # from neo4j import GraphDatabase
+// MAGIC # import pandas as pd 
+// MAGIC 
+// MAGIC # bolt_uri = "bolt://3.86.186.88:7687"
+// MAGIC # driver = GraphDatabase.driver(bolt_uri, auth=("neo4j", "digit-bottoms-sterilizer"))
+// MAGIC 
+// MAGIC # query =  """ 
+// MAGIC # MATCH (choc:Product {productName:'Chocolade'})<-[:CONTAINS]-(:Order)<-[:SOLD]-(employee),
+// MAGIC #       (employee)-[:SOLD]->(o2)-[:CONTAINS]->(other:Product)
+// MAGIC # RETURN employee.employeeID as employee, other.productName as otherProduct, count(distinct o2) as count
+// MAGIC # ORDER BY count DESC
+// MAGIC # LIMIT 5
+// MAGIC # """
+// MAGIC 
+// MAGIC # with driver.session(database="neo4j") as session:
+// MAGIC #     result = session.run(query)
+// MAGIC #     df = pd.DataFrame([dict(record) for record in result])
+// MAGIC 
+// MAGIC # df.head()
 
 // COMMAND ----------
 
@@ -716,11 +722,11 @@ result_df.show()
 
 // COMMAND ----------
 
-// MAGIC %sql
-// MAGIC 
-// MAGIC /* Query the created temp table in a SQL cell */
-// MAGIC 
-// MAGIC -- select * from `orders_csv`
+// %sql
+
+/* Query the created temp table in a SQL cell */
+
+// select * from `orders_csv`
 
 // COMMAND ----------
 
