@@ -1,4 +1,8 @@
 # Databricks notebook source
+# MAGIC %sh pwd
+
+# COMMAND ----------
+
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SQLContext
 from pyspark.sql.types import *
